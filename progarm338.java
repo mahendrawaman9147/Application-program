@@ -1,31 +1,35 @@
 import java.util.*;
 
-class program337
+class program338
 {
     public static void main(String arg[])
     {
-        Scanner sobj = new Scanner (System.in);
+        Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter numbar :");
         int iNo = sobj.nextInt();
 
         Digits dobj = new Digits();
-        int iRet = dobj.CountDigits(iNo);
-        System.out.println("Numbar of digits are :"+iRet);
+
+        int iRet = dobj.SumDigits(iNo);
+        System.out.println("Sum of digits is :"+iRet);
         sobj.close();
     }
-    
 }
 class Digits
 {
-    int CountDigits(int iValue)
+    int SumDigits(int iValue)
     {
-        int iCount = 0;
+        int iSum = 0;
+        int iDigit = 0;
+
         while(iValue != 0)
         {
-            iCount++;
+            iDigit = iValue % 10;
+            iSum = iSum + iDigit;
             iValue = iValue / 10;
+
         }
-        return iCount;
+        return iSum;
     }
 }
